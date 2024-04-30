@@ -12,7 +12,9 @@ interface Result<Data> {
 
 interface CharacterEntity {
   name: string;
-  url: string;
+  type: string;
+  id: string;
+  dimension: string;
 }
 
 type Url = string;
@@ -28,7 +30,7 @@ interface Character {
   origin: CharacterEntity;
   location: CharacterEntity;
   image: string;
-  episode: Url[];
+  episode: Episode[];
   url: Url;
   created: string;
 }
