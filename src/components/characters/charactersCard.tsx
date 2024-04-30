@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Status from "@/components/characters/characterStatus";
+import Status from "./characterStatus";
 
 interface CharacterCardProps {
   character: Character;
@@ -22,7 +22,10 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
     </div>
     <div>
       <h2 className="text-xl lg:text-2xl overflow-hidden overflow-ellipsis max-w-[250px]">
-        <Link className="hover:text-orange-500" href={`/${character.id}`}>
+        <Link
+          className="hover:text-orange-500"
+          href={`/characters/${character.id}`}
+        >
           {character.name}
         </Link>
       </h2>
