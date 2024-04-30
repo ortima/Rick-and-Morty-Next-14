@@ -6,8 +6,8 @@ interface BannerProps {
 }
 const Banner: React.FC<BannerProps> = ({ title }) => {
   return (
-    <section className="flex flex-col justify-center items-center h-40 relative">
-      <h1 className="z-10 font-black text-4xl md:text-7xl sm:text-6xl">
+    <section className="flex flex-col justify-center items-center h-40 relative mb-16">
+      <h1 className="z-10 text-white font-black text-4xl md:text-7xl sm:text-6xl">
         {title}
       </h1>
       <div className="absolute flex justify-center items-center">
