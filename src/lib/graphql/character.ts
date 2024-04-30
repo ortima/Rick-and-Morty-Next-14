@@ -8,6 +8,7 @@ const GET_CHARACTER = gql`
       status
       species
       gender
+      type
       origin {
         id
         name
@@ -23,6 +24,7 @@ const GET_CHARACTER = gql`
       image
       episode {
         id
+        episode
         name
         air_date
       }
