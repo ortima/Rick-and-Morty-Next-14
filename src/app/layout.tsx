@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import { HeaderLayout, FooterLayout } from "@/components/layout";
+import { HeaderLayout, FooterLayout, MainLayout } from "@/components/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html lang="en">
       <body className={inter.className}>
         <HeaderLayout />
-        {children}
+        <MainLayout>{children}</MainLayout>
         <FooterLayout />
       </body>
     </html>

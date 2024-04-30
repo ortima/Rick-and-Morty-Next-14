@@ -1,7 +1,7 @@
 import React from "react";
 import graphqlClient from "@/lib/client";
 import GET_CHARACTERS from "@/lib/graphql/characters";
-import { CharacterCard } from "@/components/characters/charactersCard";
+import { CharacterCard } from "@/components/characters";
 import Banner from "@/components/common/banner";
 
 const RootPage = async () => {
@@ -27,15 +27,13 @@ const RootPage = async () => {
     return (
       <>
         <Banner title={"Rick and Morty API"} />
-        <main className="bg-[#272b33] py-16">
-          <section className="container">
-            <ul className="grid gap-3.5 md:gap-y-7 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {results.slice(1, 9).map((character: Character) => (
-                <CharacterCard character={character} key={character.id} />
-              ))}
-            </ul>
-          </section>
-        </main>
+        <section className="container">
+          <ul className="grid gap-3.5 md:gap-y-7 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {results.slice(1, 9).map((character: Character) => (
+              <CharacterCard character={character} key={character.id} />
+            ))}
+          </ul>
+        </section>
       </>
     );
   } catch (error) {
