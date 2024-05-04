@@ -9,42 +9,62 @@ interface CharacterCardProps {
 export const CharacterDetail: React.FC<CharacterCardProps> = ({
   character,
 }) => (
-  <div className="flex flex-row gap-5">
-    <div className="w-full md:w-auto">
-      <Image
-        src={character.image}
-        alt={character.name}
-        width={450}
-        height={300}
-        // layout="responsive"
-        // objectFit="cover"
-        // className="rounded-md"
-      />
-    </div>
-    <div className="flex flex-col">
-      <div className="text-white">
-        <h2 className="text-xl lg:text-4xl">{character.name}</h2>
-        <span className="text-xs sm:text-base flex items-center">
+  <div className="sm:flex sm:flex-col sm:gap-15 flex flex-col gap-10">
+    <div className="sm:flex sm:flex-row sm:gap-10 flex flex-col gap-10">
+      <aside className="sm:w-[450px] w-full">
+        <Image
+          src={character.image}
+          alt={character.name}
+          className="rounded-md"
+          width={450}
+          height={300}
+          layout="responsive"
+          objectFit="cover"
+        />
+      </aside>
+      <div className="flex flex-col justify-between text-white text-base md:text-[20px] max-sm:gap-5">
+        <h2 className="text-4xl md:text-5xl">{character.name}</h2>
+        <div className="flex items-center">
           <Status status={character.status} />
-          {character.status} - {character.species}
-        </span>
+          {character.status}
+        </div>
+        <div>
+          Species:&nbsp;
+          <span className="text-orange-500">{character.species}</span>
+        </div>
+        <div>
+          Type:&nbsp;
+          <span className="text-orange-500">
+            {character.type == "" ? "unknown" : character.type}
+          </span>
+        </div>
+        <div>
+          Gender:&nbsp;
+          <span className="text-orange-500">{character.gender}</span>
+        </div>
+        <div>
+          Origin location:&nbsp;
+          <span className="text-orange-500">
+            {character.origin.type} -- {character.origin.name}
+          </span>
+        </div>
+        <div>
+          Dimension:&nbsp;
+          <span className="text-orange-500"> {character.origin.dimension}</span>
+        </div>
+        <div className="">
+          Episodes:&nbsp;
+          <span className="text-orange-500">{character.episode.length}</span>
+        </div>
       </div>
-      <div>Type: {character.type == "" ? "unknown" : character.type}</div>
-      <div>Gender: {character.gender}</div>
-      <div>
-        Origin location:{character.origin.type} -- {character.origin.name} --{" "}
-        {character.origin.dimension}
-      </div>
-      <div>
-        Episodes:{character.episode.length}
-        {character.episode.map((s) => (
-          <div key={s.id} className="flex gap-3">
-            <div>Name of episode:{s.name}</div>
-            <div>Number of episode:{s.episode}</div>
-            <div>Date of episode:{s.air_date}</div>
-          </div>
-        ))}
-      </div>
+    </div>
+    <div className="flex gap-3 flex-wrap text-white border-t-4 pt-10">
+      {character.episode.map((s) => (
+        <div key={s.id} className="p-2 bg-gray-500 rounded-2xl">
+          {s.name}: <span className="text-orange-400">{s.episode} </span>(
+          {s.air_date})
+        </div>
+      ))}
     </div>
   </div>
 );
