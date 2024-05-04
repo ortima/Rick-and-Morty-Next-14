@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Status from "./characterStatus";
 
 interface CharacterCardProps {
@@ -14,7 +14,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
         src={character.image}
         alt={character.name}
         width={200}
-        height={150}
+        height={200}
         layout="responsive"
         objectFit="cover"
         className="rounded-md"
