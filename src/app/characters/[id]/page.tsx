@@ -5,19 +5,21 @@ import { CharacterDetail } from "@/components/characters";
 const CharacterPage = async ({ params }: { params: { id: string } }) => {
   try {
     const { id } = params;
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const {
       data: { character },
-    } = await graphqlClient.query({
+    } = await graphqlClient.query<{ character: Character }>({
       query: GET_CHARACTER,
       variables: { id },
     });
     return (
       <div className="container">
-        <CharacterDetail character={character} />;
+        <CharacterDetail character={character} />
       </div>
     );
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
   }
 };
 
