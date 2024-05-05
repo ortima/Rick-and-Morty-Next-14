@@ -23,7 +23,7 @@ export const CharacterDetail: React.FC<CharacterCardProps> = ({
         />
       </aside>
       <div className="flex flex-col justify-between text-white text-base md:text-[20px] max-sm:gap-5">
-        <h2 className="text-4xl md:text-5xl">{character.name}</h2>
+        <h2 className="text-4xl md:text-5xl font-bold">{character.name}</h2>
         <div className="flex items-center">
           <Status status={character.status} />
           {character.status}
