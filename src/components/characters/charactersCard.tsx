@@ -11,6 +11,8 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
   <div className="flex flex-col gap-3.5 text-white bg-[#3c3e44] p-4 rounded-md md:p-6">
     <div className="w-full md:w-auto">
       <Image
+        placeholder="blur"
+        blurDataURL={character.image}
         src={character.image}
         alt={character.name}
         width={200}
