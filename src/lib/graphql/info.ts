@@ -1,14 +1,23 @@
 import { gql } from "@apollo/client";
 
-const GET_CHARACTERS_INFO = gql`
+const GET_INFO = gql`
   query {
     characters {
       info {
         count
-        pages
+      }
+    }
+    episodes {
+      info {
+        count
+      }
+    }
+    locations {
+      info {
+        count
       }
     }
   }
 `;
 
-export default GET_CHARACTERS_INFO;
+export default GET_INFO;
