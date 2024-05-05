@@ -1,4 +1,5 @@
 import { Logo } from "@/components/icons";
+import Link from "next/link";
 
 export const HeaderLayout = () => {
   return (
@@ -7,7 +8,9 @@ export const HeaderLayout = () => {
         <Logo />
         <nav className="text-slate-600">
           <ul>
-            <li>Characters</li>
+            <li className="cursor-pointer">
+              <Link href={"/characters"}>Characters</Link>
+            </li>
           </ul>
         </nav>
       </div>
