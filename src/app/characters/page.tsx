@@ -2,7 +2,7 @@
 import graphqlClient from "@/lib/client";
 import GET_CHARACTERS from "@/lib/graphql/characters";
 import { CharacterCard } from "@/components/characters";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   notFound,
   usePathname,
@@ -58,31 +58,29 @@ const Characters = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="container">
-        <div className="sm:flex sm:flex-row md:text-2xl sm:justify-between sm:text-white sm:pb-16 flex flex-col text-white items-center pb-8 gap-5 text-base">
-          <p>
-            Shown: {characters?.length} of {info?.count}{" "}
-          </p>
-          <p>Current page: {currentPage}</p>
-          <p>Total pages: {info && info.pages}</p>
-        </div>
-        <ul className="grid gap-3.5 md:gap-y-7 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {characters &&
-            characters.map((character: Character) => (
-              <CharacterCard character={character} key={character.id} />
-            ))}
-        </ul>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={info?.pages}
-          nextPageNumber={info?.next}
-          prevPageNumber={info?.prev}
-          onNextPage={handleNextPage}
-          onPrevPage={handlePrevPage}
-        />
+    <div className="container">
+      <div className="sm:flex sm:flex-row md:text-2xl sm:justify-between sm:text-white sm:pb-16 flex flex-col text-white items-center pb-8 gap-5 text-base">
+        <p>
+          Shown: {characters?.length} of {info?.count}{" "}
+        </p>
+        <p>Current page: {currentPage}</p>
+        <p>Total pages: {info && info.pages}</p>
       </div>
-    </Suspense>
+      <ul className="grid gap-3.5 md:gap-y-7 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {characters &&
+          characters.map((character: Character) => (
+            <CharacterCard character={character} key={character.id} />
+          ))}
+      </ul>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={info?.pages}
+        nextPageNumber={info?.next}
+        prevPageNumber={info?.prev}
+        onNextPage={handleNextPage}
+        onPrevPage={handlePrevPage}
+      />
+    </div>
   );
 };
 
