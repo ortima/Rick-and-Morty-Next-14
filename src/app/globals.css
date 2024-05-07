@@ -10,6 +10,10 @@ html, body {
 
 main {
     flex-grow: 1;
+    ::selection{
+        background: black;
+        color: rgb(249 115 22 );
+    }
 }
 
 footer {

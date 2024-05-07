@@ -2,12 +2,16 @@ import graphqlClient from "@/lib/client";
 import GET_CHARACTER from "@/lib/graphql/character";
 import { CharacterDetail } from "@/components/characters";
 import { notFound } from "next/navigation";
+import { Character } from "@/__generated__";
+import React from "react";
 // import { Metadata } from "next";
 
 type Props = {
-  params: {
-    id: string;
-  };
+  character?: Character;
+};
+
+type Params = {
+  id: string;
 };
 // export async function generateMetaData({ params }: Props): Promise<Metadata> {
 //   const id = params.id;
@@ -15,7 +19,7 @@ type Props = {
 //   return { title: `Character ${id}` };
 // }
 
-async function getPageData({ params }: Props) {
+async function getPageData({ params }: { params: Params }): Promise<Props> {
   try {
     // await generateMetaData({ params });
     const { id } = params;
@@ -25,12 +29,16 @@ async function getPageData({ params }: Props) {
       query: GET_CHARACTER,
       variables: { id },
     });
+    if (!character) {
+      notFound();
+    }
     return { character };
   } catch (e) {
-    return notFound();
+    console.log(e);
+    throw e;
   }
 }
-const CharacterPage = async ({ params }: Props) => {
+const CharacterPage: React.FC<{ params: Params }> = async ({ params }) => {
   const { character } = await getPageData({ params });
 
   return (

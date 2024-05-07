@@ -10,6 +10,7 @@ import {
   useSearchParams,
 } from "next/navigation";
 import Pagination from "@/components/common/pagination";
+import { Character, Info } from "@/__generated__/";
 
 const Characters = () => {
   const [characters, setCharacters] = useState<Character[] | null>(null);

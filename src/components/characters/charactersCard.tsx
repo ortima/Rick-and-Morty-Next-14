@@ -2,19 +2,20 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/legacy/image";
 import Status from "./characterStatus";
+import { Character } from "@/__generated__";
 
 interface CharacterCardProps {
   character: Character;
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
-  <div className="flex flex-col gap-3.5 text-white bg-[#3c3e44] p-4 rounded-md md:p-6">
+  <div className="flex flex-col gap-3.5 text-white bg-[#3c3e44] p-4 rounded-md md:p-6 hover:scale-105 duration-200 ease-in-out">
     <div className="w-full md:w-auto">
       <Image
         placeholder="blur"
-        blurDataURL={character.image}
-        src={character.image}
-        alt={character.name}
+        blurDataURL={character.image ?? ""}
+        src={character.image ?? ""}
+        alt={character.name ?? ""}
         width={200}
         height={200}
         layout="responsive"
@@ -32,7 +33,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
         </Link>
       </h2>
       <span className="text-xs sm:text-base flex items-center">
-        <Status status={character.status} />
+        <Status status={character.status ?? ""} />
         {character.status} - {character.species}
       </span>
       <div>
@@ -49,7 +50,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
         </span>
         <span className="text-white text-base lg:text-xl">
           <Link href="#" className="hover:text-orange-500">
-            {character.location.name}
+            {character.location?.name}
           </Link>
         </span>
       </div>

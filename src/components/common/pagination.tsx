@@ -2,11 +2,11 @@ import React from "react";
 
 interface Props {
   currentPage: number;
-  totalPages: number | undefined;
+  totalPages: number | undefined | null;
+  nextPageNumber: number | undefined | null;
+  prevPageNumber: number | undefined | null;
   onNextPage: () => void;
   onPrevPage: () => void;
-  nextPageNumber: string | undefined;
-  prevPageNumber: string | undefined;
 }
 
 const Pagination: React.FC<Props> = ({
@@ -24,7 +24,7 @@ const Pagination: React.FC<Props> = ({
         disabled={currentPage === 1}
         onClick={onPrevPage}
       >
-        {prevPageNumber}
+        {prevPageNumber || ""}
       </button>
       <button disabled className=" p-5 rounded-2xl bg-orange-400">
         {currentPage}
@@ -34,7 +34,7 @@ const Pagination: React.FC<Props> = ({
         disabled={currentPage === totalPages}
         onClick={onNextPage}
       >
-        {nextPageNumber}
+        {nextPageNumber || ""}
       </button>
     </div>
   );
