@@ -33,11 +33,14 @@ export const FooterLayout: React.FC = async () => {
         <div className="container flex flex-col py-6 items-center justify-around text-neutral-400 text-sm sm:text-xl">
           <ul className="flex gap-3.5 uppercase max-[425px]:grid">
             <li className="cursor-pointer hover:text-orange-500">
-              Characters: {characters.info.count}
+              <Link href={"/characters"}>
+                Characters: {characters.info.count}
+              </Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500">
-              Episodes: {episodes.info.count}
+              <Link href={"/episodes"}>Episodes: {episodes.info.count}</Link>
             </li>
+
             <li className="cursor-pointer hover:text-orange-500">
               Locations: {locations.info.count}
             </li>

@@ -8,15 +8,21 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "graphql-codegen"
-
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
+    "@apollo/experimental-nextjs-app-support": "^0.10.1",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "graphql": "^16.8.1",
+    "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.1.0"
+    "react-icons": "^5.1.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
