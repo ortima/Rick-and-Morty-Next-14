@@ -21,8 +21,11 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.1.0",
+    "react-spinners": "^0.13.8",
+    "sharp": "^0.33.3",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
