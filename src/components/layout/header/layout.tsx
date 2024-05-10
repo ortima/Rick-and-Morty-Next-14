@@ -5,14 +5,19 @@ export const HeaderLayout = () => {
   return (
     <header className="bg-white w-full">
       <div className="container flex justify-between items-center py-4 ">
-        <Logo />
+        <Link href={"/"}>
+          <Logo />
+        </Link>
         <nav className="text-slate-600">
           <ul className="flex gap-5">
-            <li className="cursor-pointer">
+            <li className="cursor-pointer hover:text-orange-400">
               <Link href={"/characters"}>Characters</Link>
             </li>
-            <li>
+            <li className="cursor-pointer hover:text-orange-400">
               <Link href={"/episodes"}>Episodes</Link>
+            </li>{" "}
+            <li className="cursor-pointer hover:text-orange-400">
+              <Link href={"/locations"}>Locations</Link>
             </li>
           </ul>
         </nav>

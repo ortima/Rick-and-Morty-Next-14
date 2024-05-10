@@ -42,7 +42,7 @@ export const FooterLayout: React.FC = async () => {
             </li>
 
             <li className="cursor-pointer hover:text-orange-500">
-              Locations: {locations.info.count}
+              <Link href={"/locations"}>Locations: {locations.info.count}</Link>
             </li>
           </ul>
           <Link
