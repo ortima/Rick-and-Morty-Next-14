@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import { HeaderLayout, FooterLayout, MainLayout } from "@/components/layout";
 import { ApolloWrapper } from "@/lib/apollo-wrapper";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

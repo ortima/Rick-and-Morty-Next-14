@@ -31,7 +31,7 @@ const Locations = async ({ searchParams }: { searchParams: any }) => {
         </div>
         <div className="flex items-center">
           <div className="mx-auto">
-            <Search search={search} />
+            <Search search={search} pathname={"/locations"} />
           </div>
         </div>
       </div>
@@ -47,7 +47,9 @@ const Locations = async ({ searchParams }: { searchParams: any }) => {
           ))}
         </div>
       ) : (
-        <div className="text-white text-2xl">No locations found :(</div>
+        <div className="text-white text-center sm:text-2xl text:base">
+          Location: {search} not found :(
+        </div>
       )}
       <div className="flex gap-10 justify-center text-base  mt-10">
         <Link

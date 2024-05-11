@@ -8,7 +8,7 @@ export const HeaderLayout = () => {
         <Link href={"/"}>
           <Logo />
         </Link>
-        <nav className="text-slate-600">
+        <nav className="text-slate-600 font-bold">
           <ul className="flex gap-5">
             <li className="cursor-pointer hover:text-orange-400">
               <Link href={"/characters"}>Characters</Link>

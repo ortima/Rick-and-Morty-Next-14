@@ -3,7 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDebounce } from "use-debounce";
 
-const Search = ({ search }: { search?: string }) => {
+const Search = ({
+  search,
+  pathname,
+  status,
+}: {
+  search?: string;
+  pathname: string;
+  status?: string;
+}) => {
   const router = useRouter();
   const [text, setText] = useState(search);
   const [query] = useDebounce(text, 500);
@@ -16,9 +24,11 @@ const Search = ({ search }: { search?: string }) => {
       return;
     }
     if (!query) {
-      router.push(`/locations`);
+      router.push(pathname);
     } else {
-      router.push(`/locations?search=${query}`);
+      const statusParam = status ? `&status=${status}` : "";
+
+      router.push(`${pathname}?search=${query}${statusParam}`);
     }
   }, [query, router]);
 
