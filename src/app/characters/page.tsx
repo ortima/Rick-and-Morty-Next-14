@@ -28,17 +28,17 @@ const Characters = async ({ searchParams }: { searchParams: any }) => {
 
   return (
     <div className="container">
-      <div className="sm:flex sm:flex-row md:text-2xl sm:justify-between sm:text-white sm:pb-16 flex flex-col text-white items-center pb-8 gap-5 text-base">
-        <p className={characters.length > 0 ? "" : "hidden"}>
+      <div className="sm:grid sm:grid-cols-4 md:text-2xl  sm:text-white sm:pb-16 flex flex-col text-white items-center pb-8 gap-5 text-base">
+        <p className={characters.length > 0 ? "text-base" : "hidden"}>
           Shown: {characters?.length} of {data.characters?.info?.count}
         </p>
-        <div className="mx-auto">
+        <div className="col-span-3 flex justify-between max-md:gap-3">
           <Search search={search} status={status} pathname={"/characters"} />
+          {/*<p className={characters.length > 0 ? "" : "hidden"}>*/}
+          {/*  Total pages: {data.characters?.info?.pages}*/}
+          {/*</p>*/}
+          <SelectDropdown search={search} status={status} />
         </div>
-        {/*<p className={characters.length > 0 ? "" : "hidden"}>*/}
-        {/*  Total pages: {data.characters?.info?.pages}*/}
-        {/*</p>*/}
-        <SelectDropdown search={search} status={status} />
       </div>
       {characters.length > 0 ? (
         <div className="grid gap-3.5 md:gap-y-7 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
