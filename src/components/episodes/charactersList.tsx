@@ -1,9 +1,9 @@
-import React from "react";
-import { Episode } from "@/__generated__";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
+import { Episode } from '@/__generated__/graphql'
 
 export const CharactersList: React.FC<{
-  characters: Episode["characters"];
+  characters: Episode['characters']
 }> = ({ characters }) => (
   <div className="flex flex-col gap-5">
     <h2>List of characters:</h2>
@@ -19,6 +19,6 @@ export const CharactersList: React.FC<{
       ))}
     </div>
   </div>
-);
+)
 
-export default CharactersList;
+export default CharactersList

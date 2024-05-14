@@ -1,11 +1,11 @@
-import React from "react";
-import { Episode } from "@/__generated__";
+import { Episode } from '@/__generated__/graphql'
+import React from 'react'
 
 interface Props {
-  episode: Episode;
-  setSelectedEpisode: React.Dispatch<React.SetStateAction<Episode | null>>;
-  setHighlightedEpisodeId: React.Dispatch<React.SetStateAction<string | null>>;
-  highlightedEpisodeId: string | null;
+  episode: Episode
+  setSelectedEpisode: React.Dispatch<React.SetStateAction<Episode | null>>
+  setHighlightedEpisodeId: React.Dispatch<React.SetStateAction<string | null>>
+  highlightedEpisodeId: string | null
 }
 
 export const EpisodeInfo: React.FC<Props> = ({
@@ -15,13 +15,15 @@ export const EpisodeInfo: React.FC<Props> = ({
   highlightedEpisodeId,
 }) => {
   const currentEpisode = () => {
-    setSelectedEpisode(episode);
-    setHighlightedEpisodeId(episode.id ? episode.id : null);
-  };
+    setSelectedEpisode(episode)
+    setHighlightedEpisodeId(episode.id ? episode.id : null)
+  }
 
   return (
     <aside
-      className={`border-b-4 cursor-pointer ${highlightedEpisodeId === episode.id ? "text-orange-400" : "text-white"}`}
+      className={`border-b-4 cursor-pointer ${
+        highlightedEpisodeId === episode.id ? 'text-orange-400' : 'text-white'
+      }`}
       onClick={currentEpisode}
     >
       <div>
@@ -29,7 +31,7 @@ export const EpisodeInfo: React.FC<Props> = ({
       </div>
       <div>{episode.air_date}</div>
     </aside>
-  );
-};
+  )
+}
 
-export default EpisodeInfo;
+export default EpisodeInfo

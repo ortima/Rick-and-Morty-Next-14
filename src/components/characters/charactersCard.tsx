@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/legacy/image";
-import Status from "./characterStatus";
-import { Character } from "@/__generated__";
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/legacy/image'
+import Status from './characterStatus'
+import { Character } from '@/__generated__/graphql'
 
 interface CharacterCardProps {
-  character: Character | null;
+  character: Character | null
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
@@ -13,9 +13,9 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
     <div className="w-full md:w-auto">
       <Image
         placeholder="blur"
-        blurDataURL={character?.image ?? ""}
-        src={character?.image ?? ""}
-        alt={character?.name ?? ""}
+        blurDataURL={character?.image ?? ''}
+        src={character?.image ?? ''}
+        alt={character?.name ?? ''}
         width={200}
         height={200}
         layout="responsive"
@@ -33,11 +33,11 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
         </Link>
       </h2>
       <span className="text-xs sm:text-base flex items-center">
-        <Status status={character?.status ?? ""} />
+        <Status status={character?.status ?? ''} />
         {character?.status} - {character?.species}
       </span>
       <div>
-        Type:{" "}
+        Type:{' '}
         <span className="underline underline-offset-4 decoration-orange-700">
           {character?.gender}
         </span>
@@ -56,6 +56,6 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => (
       </div>
     </div>
   </div>
-);
+)
 
-export default CharacterCard;
+export default CharacterCard
