@@ -17,8 +17,6 @@ See deployment for notes on how to deploy the project on a live system.
 First, you will need to `clone` or `fork` the repository into your Github
 account:
 
-<img src="https://brandeps.com/icon-download/G/Git-fork-icon-vector-01.svg" alt="Fork on GitHub" width='450'>
-
 ```
 $ git clone https://github.com/ortima/Rick-and-Morty-Next-14.git
 ```
