@@ -72,3 +72,8 @@ Path: `/characters/:id`
 Path: `/locations`
 
 <img src="public/git/locations.png" >
+
+### P.S.
+
+This repository contains a lot of rough edges and areas for improvement.
+Any feedback, contributions, or pull requests are greatly appreciated! 🙌
