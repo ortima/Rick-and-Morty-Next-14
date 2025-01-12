@@ -1,6 +1,6 @@
 import React from "react";
 import graphqlClient from "@/lib/client";
-import GET_INFO from "@/lib/graphql/info";
+import { GET_INFO } from "@/lib/graphql";
 import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
 
@@ -62,7 +62,7 @@ export const FooterLayout: React.FC = async () => {
 								ortima
 							</Link>
 						</span>
-						&nbsp;2024
+						&nbsp; {new Date().getFullYear()}
 					</p>
 				</div>
 			</footer>

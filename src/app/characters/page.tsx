@@ -4,7 +4,7 @@ import { CharacterCard } from "@/components/characters";
 import SelectDropdown from "@/components/characters/select";
 import Search from "@/components/common/search";
 import graphqlClient from "@/lib/client";
-import GET_CHARACTERS from "@/lib/graphql/characters";
+import { GET_CHARACTERS } from "@/lib/graphql";
 import { ApolloQueryResult } from "@apollo/client";
 import Link from "next/link";
 

@@ -3,7 +3,7 @@ import { GetEpisodeQuery } from "@/__generated__/graphql";
 import { CharacterCard } from "@/components/characters";
 import CarouselSlider from "@/components/common/carousel";
 import graphqlClient from "@/lib/client";
-import GET_EPISODE from "@/lib/graphql/episode";
+import { GET_EPISODE } from "@/lib/graphql";
 import { notFound } from "next/navigation";
 
 type Params = {

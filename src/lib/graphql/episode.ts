@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const GET_EPISODE = gql`
+export const GET_EPISODE = gql`
 	query getEpisode($id: ID!) {
 		episode(id: $id) {
 			id
@@ -22,5 +22,3 @@ const GET_EPISODE = gql`
 		}
 	}
 `;
-
-export default GET_EPISODE;

@@ -2,7 +2,7 @@ import React from "react";
 import { GetLocationsQuery } from "@/__generated__/graphql";
 import Search from "@/components/common/search";
 import graphqlClient from "@/lib/client";
-import GET_LOCATIONS from "@/lib/graphql/locations";
+import { GET_LOCATIONS } from "@/lib/graphql";
 import { ApolloQueryResult } from "@apollo/client";
 import Link from "next/link";
 
