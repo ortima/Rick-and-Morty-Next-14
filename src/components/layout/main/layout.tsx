@@ -1,7 +1,8 @@
 import React from "react";
+
 interface MainLayoutProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  return <main className="py-16 bg-[#272b33]">{children}</main>;
+	return <main className="bg-[#272b33] py-16">{children}</main>;
 };

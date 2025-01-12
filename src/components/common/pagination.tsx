@@ -1,43 +1,43 @@
 import React from "react";
 
 interface Props {
-  currentPage: number;
-  totalPages: number | undefined | null;
-  nextPageNumber: number | undefined | null;
-  prevPageNumber: number | undefined | null;
-  onNextPage?: () => void;
-  onPrevPage?: () => void;
+	currentPage: number;
+	totalPages: number | undefined | null;
+	nextPageNumber: number | undefined | null;
+	prevPageNumber: number | undefined | null;
+	onNextPage?: () => void;
+	onPrevPage?: () => void;
 }
 
 const Pagination: React.FC<Props> = ({
-  currentPage,
-  totalPages,
-  onNextPage,
-  onPrevPage,
-  nextPageNumber,
-  prevPageNumber,
+	currentPage,
+	totalPages,
+	onNextPage,
+	onPrevPage,
+	nextPageNumber,
+	prevPageNumber,
 }) => {
-  return (
-    <div className="flex gap-10 justify-center text-base text-white mt-10">
-      <button
-        className={`p-5 hover:opacity-60 hover:scale-110 bg-white text-black rounded-2xl ${prevPageNumber === null ? "hidden" : ""}`}
-        disabled={currentPage === 1}
-        onClick={onPrevPage}
-      >
-        {prevPageNumber || ""}
-      </button>
-      <button disabled className=" p-5 rounded-2xl bg-orange-400">
-        {currentPage}
-      </button>
-      <button
-        className={`p-5 hover:opacity-60 hover:scale-110 bg-white text-black rounded-2xl ${nextPageNumber === null ? "hidden" : ""}`}
-        disabled={currentPage === totalPages}
-        onClick={onNextPage}
-      >
-        {nextPageNumber || ""}
-      </button>
-    </div>
-  );
+	return (
+		<div className="mt-10 flex justify-center gap-10 text-base text-white">
+			<button
+				className={`rounded-2xl bg-white p-5 text-black hover:scale-110 hover:opacity-60 ${prevPageNumber === null ? "hidden" : ""}`}
+				disabled={currentPage === 1}
+				onClick={onPrevPage}
+			>
+				{prevPageNumber || ""}
+			</button>
+			<button disabled className="rounded-2xl bg-orange-400 p-5">
+				{currentPage}
+			</button>
+			<button
+				className={`rounded-2xl bg-white p-5 text-black hover:scale-110 hover:opacity-60 ${nextPageNumber === null ? "hidden" : ""}`}
+				disabled={currentPage === totalPages}
+				onClick={onNextPage}
+			>
+				{nextPageNumber || ""}
+			</button>
+		</div>
+	);
 };
 
 export default Pagination;
