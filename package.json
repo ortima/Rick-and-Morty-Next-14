@@ -2,13 +2,14 @@
 	"name": "rick-and-morty-next",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
 		"format": "prettier --write . --",
-		"fix": "npx eslint . --fix",
-		"lint": "next lint",
+		"lint": "eslint .",
+		"fix": "eslint . --fix",
 		"generate": "graphql-codegen",
 		"prepare": "husky",
 		"docker-build": "docker compose build",
@@ -25,9 +26,9 @@
 		"embla-carousel-react": "^8.0.4",
 		"graphql": "^16.8.1",
 		"lucide-react": "^0.378.0",
-		"next": "14.2.3",
-		"react": "^18",
-		"react-dom": "^18",
+		"next": "15.1.4",
+		"react": "19.0.0",
+		"react-dom": "19.0.0",
 		"react-icons": "^5.1.0",
 		"react-spinners": "^0.13.8",
 		"sharp": "^0.33.3",
@@ -36,21 +37,30 @@
 		"use-debounce": "^10.0.0"
 	},
 	"devDependencies": {
+		"@eslint/js": "^9.18.0",
 		"@graphql-codegen/cli": "^5.0.2",
 		"@graphql-codegen/client-preset": "^4.2.5",
 		"@ianvs/prettier-plugin-sort-imports": "^4.4.0",
 		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"eslint": "^8",
-		"eslint-config-next": "14.2.3",
+		"@types/react": "19.0.5",
+		"@types/react-dom": "19.0.3",
+		"@typescript-eslint/eslint-plugin": "^8.19.1",
+		"@typescript-eslint/parser": "^8.19.1",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9.18.0",
+		"eslint-config-next": "^15.1.4",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-react": "^7.37.3",
+		"eslint-plugin-react-hooks": "^5.1.0",
+		"globals": "^15.14.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.3.0",
-		"postcss": "^8",
+		"postcss": "^8.4.49",
 		"prettier": "3.4.2",
 		"prettier-plugin-tailwindcss": "^0.6.9",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5",
+		"typescript-eslint": "^8.19.1"
 	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown",
@@ -58,5 +68,9 @@
 		"src/*.{ts,tsx}": [
 			"tsc --noEmit"
 		]
+	},
+	"overrides": {
+		"@types/react": "19.0.5",
+		"@types/react-dom": "19.0.3"
 	}
 }
