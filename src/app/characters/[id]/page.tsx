@@ -2,7 +2,7 @@ import React from "react";
 import { Character } from "@/__generated__/graphql";
 import { CharacterDetail } from "@/components/characters";
 import graphqlClient from "@/lib/client";
-import GET_CHARACTER from "@/lib/graphql/character";
+import { GET_CHARACTER } from "@/lib/graphql";
 import { notFound } from "next/navigation";
 
 // import { Metadata } from "next";

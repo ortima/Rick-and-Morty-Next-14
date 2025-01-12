@@ -6,7 +6,7 @@ import Pagination from "@/components/common/pagination";
 import { CharactersList, EpisodeInfo } from "@/components/episodes";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import GET_EPISODES from "@/lib/graphql/episodes";
+import { GET_EPISODES } from "@/lib/graphql";
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 import {
