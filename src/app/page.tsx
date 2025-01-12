@@ -3,7 +3,7 @@ import { GetCharactersQuery } from "@/__generated__/graphql";
 import { CharacterCard } from "@/components/characters";
 import Banner from "@/components/common/banner";
 import graphqlClient from "@/lib/client";
-import GET_CHARACTERS from "@/lib/graphql/characters";
+import { GET_CHARACTERS } from "@/lib/graphql";
 import { ApolloQueryResult } from "@apollo/client";
 
 const RootPage: React.FC = async () => {
