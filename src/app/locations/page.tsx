@@ -6,7 +6,10 @@ import { GET_LOCATIONS } from "@/lib/graphql";
 import { ApolloQueryResult } from "@apollo/client";
 import Link from "next/link";
 
-const Locations = async ({ searchParams }: { searchParams: any }) => {
+// TODO: add type later
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Locations = async (props: { searchParams: Promise<any> }) => {
+	const searchParams = await props.searchParams;
 	const search =
 		typeof searchParams.search === "string" ? searchParams.search : undefined;
 

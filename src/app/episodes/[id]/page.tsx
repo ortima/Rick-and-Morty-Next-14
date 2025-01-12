@@ -27,7 +27,8 @@ const getPageData = async ({ params }: { params: Params }) => {
 	}
 };
 
-const Episode: React.FC<{ params: Params }> = async ({ params }) => {
+const Episode: React.FC<{ params: Params }> = async (props) => {
+	const params = await props.params;
 	const episode = await getPageData({ params });
 
 	const characterCards = episode.data.episode?.characters.map((character) => (

@@ -39,7 +39,8 @@ async function getPageData({ params }: { params: Params }): Promise<Props> {
 		throw e;
 	}
 }
-const CharacterPage: React.FC<{ params: Params }> = async ({ params }) => {
+const CharacterPage: React.FC<{ params: Params }> = async (props) => {
+	const params = await props.params;
 	const { character } = await getPageData({ params });
 
 	return (

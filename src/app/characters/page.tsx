@@ -8,7 +8,10 @@ import { GET_CHARACTERS } from "@/lib/graphql";
 import { ApolloQueryResult } from "@apollo/client";
 import Link from "next/link";
 
-const Characters = async ({ searchParams }: { searchParams: any }) => {
+// TODO: added type
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Characters = async (props: { searchParams: Promise<any> }) => {
+	const searchParams = await props.searchParams;
 	const search =
 		typeof searchParams.search === "string" ? searchParams.search : undefined;
 
