@@ -13,7 +13,7 @@ import {
 	notFound,
 	usePathname,
 	useRouter,
-	useSearchParams,
+	useSearchParams
 } from "next/navigation";
 import { IoIosArrowDropright } from "react-icons/io";
 
@@ -30,8 +30,8 @@ const Episodes: React.FC = () => {
 	const { loading, error, data, refetch } = useQuery<GetEpisodesQuery>(
 		GET_EPISODES,
 		{
-			variables: { page: page },
-		},
+			variables: { page: page }
+		}
 	);
 
 	useEffect(() => {
@@ -71,7 +71,7 @@ const Episodes: React.FC = () => {
 
 	if (loading)
 		return (
-			<div className="container flex justify-between border-2 p-6 text-white">
+			<div className="flex justify-between border-2 p-6 text-white">
 				<div className="flex flex-col gap-5">
 					{new Array(10).fill("").map((_, index) => (
 						<Skeleton key={index} className="h-[30px] w-[300px] rounded-full" />

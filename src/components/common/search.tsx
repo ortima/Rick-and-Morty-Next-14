@@ -7,7 +7,7 @@ import { useDebounce } from "use-debounce";
 const Search = ({
 	search,
 	pathname,
-	status,
+	status
 }: {
 	search?: string;
 	pathname: string;
@@ -29,7 +29,7 @@ const Search = ({
 		} else {
 			const statusParam = status ? `&status=${status}` : "";
 
-			router.push(`${pathname}?search=${query}${statusParam}`);
+			router.push(`${pathname}?name=${query}${statusParam}`);
 		}
 	}, [query, router]);
 

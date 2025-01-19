@@ -1,52 +1,31 @@
-import React from "react";
-import { Character } from "@/__generated__/graphql";
+import { CharacterAPI } from "@/api";
 import { CharacterDetail } from "@/components/characters";
-import graphqlClient from "@/lib/client";
-import { GET_CHARACTER } from "@/lib/graphql";
 import { notFound } from "next/navigation";
 
-// import { Metadata } from "next";
+export default async function CharacterPage({
+	params
+}: {
+	params: Promise<{ id: string }>;
+}) {
+	const { id } = await params;
 
-type Props = {
-	character?: Character;
-};
-
-type Params = {
-	id: string;
-};
-// export async function generateMetaData({ params }: Props): Promise<Metadata> {
-//   const id = params.id;
-//   console.log("CONSOLE LOG:", id);
-//   return { title: `Character ${id}` };
-// }
-
-async function getPageData({ params }: { params: Params }): Promise<Props> {
-	try {
-		// await generateMetaData({ params });
-		const { id } = params;
-		const {
-			data: { character },
-		} = await graphqlClient.query<{ character: Character }>({
-			query: GET_CHARACTER,
-			variables: { id },
-		});
-		if (!character) {
-			notFound();
-		}
-		return { character };
-	} catch (e) {
-		console.log(e);
-		throw e;
+	if (!id || isNaN(Number(id))) {
+		notFound();
 	}
-}
-const CharacterPage: React.FC<{ params: Params }> = async (props) => {
-	const params = await props.params;
-	const { character } = await getPageData({ params });
 
-	return (
-		<div className="container">
-			<CharacterDetail character={character} />
-		</div>
+	const character = await CharacterAPI.getCharacterById(Number(id));
+
+	console.log("@@@", character);
+
+	if (!character) {
+		notFound();
+	}
+
+	const episodes = await Promise.all(
+		(character.episode || []).map((episodeUrl) =>
+			fetch(episodeUrl).then((res) => res.json())
+		)
 	);
-};
-export default CharacterPage;
+
+	return <CharacterDetail episodes={episodes} character={character} />;
+}

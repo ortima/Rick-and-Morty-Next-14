@@ -3,7 +3,7 @@
 	"semi": true,
 	"jsxSingleQuote": false,
 	"bracketSpacing": true,
-	"trailingComma": "all",
+	"trailingComma": "none",
 	"printWidth": 80,
 
 	"importOrder": ["^(react/(.*)$)|^(react$)", "<THIRD_PARTY_MODULES>", "^[.]"],

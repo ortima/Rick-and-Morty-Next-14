@@ -1,9 +1,5 @@
 import React from "react";
-import { GetLocationsQuery } from "@/__generated__/graphql";
 import Search from "@/components/common/search";
-import graphqlClient from "@/lib/client";
-import { GET_LOCATIONS } from "@/lib/graphql";
-import { ApolloQueryResult } from "@apollo/client";
 import Link from "next/link";
 
 // TODO: add type later
@@ -19,13 +15,13 @@ const Locations = async (props: { searchParams: Promise<any> }) => {
 	const { data }: ApolloQueryResult<GetLocationsQuery> =
 		await graphqlClient.query({
 			query: GET_LOCATIONS,
-			variables: { filter: { name: search }, page: page },
+			variables: { filter: { name: search }, page: page }
 		});
 
 	const locations = data.locations?.results || [];
 
 	return (
-		<section className="container flex flex-col items-center gap-10 sm:flex sm:flex-col sm:items-center sm:gap-20">
+		<section className="flex flex-col items-center gap-10 sm:flex sm:flex-col sm:items-center sm:gap-20">
 			<div className="items-center justify-between sm:flex">
 				<div
 					className={`mr-4 text-white ${locations.length > 0 ? "" : "hidden"}`}
@@ -63,8 +59,8 @@ const Locations = async (props: { searchParams: Promise<any> }) => {
 						pathname: "/locations",
 						query: {
 							...(search ? { search } : {}),
-							page: data.locations?.info?.prev,
-						},
+							page: data.locations?.info?.prev
+						}
 					}}
 				>
 					Prev
@@ -77,8 +73,8 @@ const Locations = async (props: { searchParams: Promise<any> }) => {
 						pathname: "/locations",
 						query: {
 							...(search ? { search } : {}),
-							page: data.locations?.info?.next,
-						},
+							page: data.locations?.info?.next
+						}
 					}}
 				>
 					Next

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+interface IProps {
 	currentPage: number;
 	totalPages: number | undefined | null;
 	nextPageNumber: number | undefined | null;
@@ -9,13 +9,13 @@ interface Props {
 	onPrevPage?: () => void;
 }
 
-const Pagination: React.FC<Props> = ({
+const Pagination: React.FC<IProps> = ({
 	currentPage,
 	totalPages,
 	onNextPage,
 	onPrevPage,
 	nextPageNumber,
-	prevPageNumber,
+	prevPageNumber
 }) => {
 	return (
 		<div className="mt-10 flex justify-center gap-10 text-base text-white">
